@@ -1,0 +1,34 @@
+.footer{
+    background-color: $color-footer;
+    width: 100%;
+    height: 100%;
+    min-height: 216px;
+    margin-top: -56px;
+    font-family: $font-text;
+    font-size: 16px;
+    color: $color-footer-text;
+}
+
+.footer{
+    >ul{
+        list-style-type: none;
+    }
+    &__title{
+        font-family: $font-title;
+        font-size: 18px;
+        padding-top: 26px;
+        padding-bottom: 20px;
+    }
+    &__1 , &__2 , &__3{
+        margin-bottom: 6px;
+    }
+    &__icon{
+        color: $color-footer-text;
+        width: 30px;
+    }
+}
+
+.footer__4-link{
+    text-decoration: none;
+    color: $color-footer-text;
+}

@@ -1,0 +1,42 @@
+.header__btn-explore {
+    width: 220px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: auto;
+    border: 1px solid $color-button;
+    background-color: $color-button;
+    border-radius: 25px;
+    color: white;
+    font-family: $font-text;
+    background: radial-gradient(at 5% 0%, $color-button-gradient, 78%, $color-button);
+    @include desktop{
+        margin-top: -20px;
+    }
+    &:hover{
+    @include color-btn-shadow;
+    }
+}
+
+.btn-commander {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    border: 1px solid $color-button;
+    background-color: $color-button;
+    border-radius: 25px;
+    color: white;
+    font-family: $font-text;
+    background: radial-gradient(at 25% 10%, $color-button-gradient, 230px, $color-button);
+    @include desktop{
+        width: 320px;
+        font-size: 20px;
+    }
+    &:hover{
+    @include color-btn-shadow;
+    }
+}

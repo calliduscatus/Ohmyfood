@@ -1,0 +1,179 @@
+
+@mixin color-box-fonctionnaly-shadow ($color:$color-box){
+    @if (lightness($color) < 25%){
+        $color: lightnen($color, 30%)
+    }
+    @else{
+        $color: darken($color, 30%)
+    }
+    box-shadow: 3px 3px 10px $color;
+}
+
+@mixin aside-info-text{
+    width: 120px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border: 1px solid $color-tertiary;
+    background-color: $color-tertiary;
+    font-family: $font-text;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@mixin color-box-restaurant-shadow ($color:$color-box-secondary){
+    @if (lightness($color) < 25%){
+        $color: lightnen($color, 20%)
+    }
+    @else{
+        $color: darken($color, 20%)
+    }
+    box-shadow: 3px 3px 10px $color;
+}
+
+@mixin color-block-menu-shadow ($color:$color-box-secondary){
+    @if (lightness($color) < 25%){
+        $color: lightnen($color, 25%)
+    }
+    @else{
+        $color: darken($color, 25%)
+    }
+    box-shadow: 3px 3px 10px $color;
+}
+
+@mixin color-btn-shadow ($color:$color-box-secondary){
+    @if (&:hover == true) and (lightness($color) < 25%){
+        $color: lightnen($color, 40%)
+    }
+    @else{
+        $color: darken($color, 40%)
+    }
+    opacity: 0.9;
+    transition-duration: 400ms;
+    box-shadow: 0px 8px 5px -5px $color;
+}
+
+@mixin color-text-aside-info ($color:$color-tertiary){
+    @if (lightness($color) < 25%){
+        $color: lightnen($color, 40%)
+    }
+    @else{
+        $color: darken($color, 40%)
+    }
+    color: $color;
+}
+
+@mixin desktop{
+    @media screen and (min-width: map-get($breakpoint , desktop)){
+        @content;
+    }
+}
+@mixin small-desktop{
+    @media screen and (min-width: map-get($breakpoint , small-desktop)){
+        @content;
+    }
+}
+@mixin small-mobile{
+    @media screen and (max-width: map-get($breakpoint , small-mobile)){
+        @content;
+    }
+}
+@mixin tablette{
+        @media screen and (min-width: map-get($breakpoint , tablette)){
+            @content;
+        }
+    }
+@mixin validate-effect-inactive{
+        @if (&:hover==false){
+            width: 0px;
+            transition-duration: 280ms;
+            transition-delay: 200ms;
+        }
+    }
+@mixin icon-effect-active{
+    @if (&:hover==true){
+        transform: rotate(360deg);
+        transition-duration: 280ms;
+        transition-delay: 200ms;
+        animation-fill-mode: forwards;
+    }
+}
+@mixin icon-effect-inactive{
+    @if (&:hover==false){
+        animation-name: icon-effect-inactive;
+        animation-duration: 280ms;
+        animation-delay: 200ms;
+        animation-fill-mode: forwards;
+    }
+}
+@keyframes border-name-effect-tablette {
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+@keyframes border-name-effect-desktop {
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 120px;
+    }
+}
+
+@keyframes apparition-menu {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes apparition-menu-block {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes page-after-spinner{
+    0%{
+        opacity: 0;
+        touch-action: none;
+    }
+    85%{
+        opacity: 0;
+    }
+    99.99%{
+        touch-action: none;
+    }
+    100%{
+        opacity: 1;
+        background-color: white;
+        touch-action: auto;
+    }    
+}
+
+@keyframes spin {
+    0%{
+        transform: scale(1);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(0);
+        opacity: 1;
+    } 
+}
+
+
+
+
+

@@ -1,0 +1,243 @@
+.header-restaurant{
+    &__picture-container{
+        width: 100%;
+        height: 250px;
+        margin-top: -16px;
+        margin-right: auto;
+        margin-left: auto;
+        @include tablette{
+            height: 430px;
+        }
+    }
+    &__picture{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__block{
+        width: 100%;
+        padding-bottom: 20px;
+        background-color: $color-block-restaurant;
+        border-radius: 25px 25px 0 0;
+        position: relative;
+        bottom: 40px;
+    }
+    &__name{
+        height: 37.6px;
+        padding-top: 30px;
+        font-family: $font-title;
+        font-size: $size-text-title;
+        color: $color-text-primary;
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 20px;
+        margin-bottom: 60px;
+        @include small-desktop{
+            margin-top: 40px;
+            margin-left: 40px;
+            font-size: $size-text-title-desktop;
+        }
+    }
+    &__container-icon-heart{
+        width: 80px;
+    }
+    &__name-icon{
+        font-size: 29.6px;
+        opacity: 0;
+        margin-left: -34px;
+        position: relative;
+        top: 1px;
+        margin-top: auto;
+        margin-bottom: auto;
+        &:hover{
+            background-image: linear-gradient(to top, rgb(217, 143, 155), $color-primary);
+            background-size: cover;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            opacity: 1;
+        }
+        @include small-desktop{
+            position: relative;
+            right: 1px;
+        }
+    }
+    &__name-icon-2{
+        font-size: 28px;
+        color: $color-text-secondary;
+        margin-left: 20px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    &__container-menu{
+        @include small-desktop{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+    &__menu{
+        font-family: $font-text;
+        color: $color-text-secondary;
+        margin-left: 20px;
+        margin-top: 36px;
+        @include small-desktop{
+            margin-bottom: 0px;
+            color: $color-text-primary;
+        }
+    }
+    &__menu::after{
+        display: block;
+        content: "";
+        width: 30px;
+        height: 3px;
+        background-color: $color-tertiary;
+        margin-top: 3px;
+    }
+    &__border-name{
+        @media screen and (min-width: 767px){
+        width: 100px;
+        height: 4px;
+        background-color: $color-tertiary;
+        position: relative;
+        bottom: 52px;
+        margin-left: 20px;
+        animation-name: border-name-effect-tablette;
+        animation-duration: 1600ms;
+        @include small-desktop{
+            width: 120px;
+            margin-left: 40px;
+            height: 5px;
+            animation-name: border-name-effect-desktop;
+            animation-duration: 1600ms;
+        }
+    }
+}
+    &__block-menu{
+        @include small-desktop{
+            border: 1px solid $color-primary;
+            background: radial-gradient(at 25% 10%, $color-button-gradient, 200px, $color-button);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            min-width: 200px;
+            height: 600px;
+            margin-left: 10px;
+            margin-right: 10px;
+            animation-name: apparition-menu-block;
+            animation-fill-mode: forwards;
+            animation-duration: 1600ms;
+            opacity: 0;
+            @for $i from 1 through $number-block-menu{
+                &--#{$i} {
+                    animation-delay: calc($anim-delay-block-menu * $i);
+                }
+            }
+        }
+        &:hover{
+            @include color-block-menu-shadow;
+            transform: scale(1.01);
+            transition: 300ms;
+        }
+    }
+    &__menu-container{
+        @include small-desktop{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 450px;
+        }
+    }
+    &__container{
+        background-color: $color-box-secondary;
+        border-radius: 16px;
+        width: 94%;
+        margin: auto;
+        margin-top: 14px;
+        margin-bottom: 14px;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        cursor: auto;
+        &:hover .header-restaurant__container-validate{
+            width: 90px;
+            transition-duration: 400ms;
+            color: transparent;
+        }
+        &:hover .header-restaurant__icon-check{
+            @include icon-effect-active;
+        }
+        @include color-box-restaurant-shadow;
+        @include small-desktop{
+            box-shadow: none;
+        }
+        @media screen and (max-width:959px) {
+            opacity: 0;
+            animation-name: apparition-menu;
+            animation-duration: $anim-dur;
+            animation-fill-mode: forwards;
+            @for $i from 2 through $number-container{
+                &--#{$i} {
+                    animation-delay: calc($anim-delay * $i);
+                }
+            }
+            
+        }
+    }
+    &__container-validate{
+        width: 0px;
+        background-color: $color-tertiary;
+        border-radius: 0 16px 16px 0;
+        @include validate-effect-inactive;
+    }
+    &__icon-check{
+        font-size: 30px;
+        color: white;
+        background-color: $color-tertiary;
+        position: relative;
+        top: calc(50% - (30px / 2));
+        left: 18%;
+        margin-left: 9px;
+    }
+    &__container-inside-info{
+        width: 100%;
+        height: 100%;
+        min-width: 70%;
+        display: flex;
+        flex-direction: column;
+    }
+    &__plat{
+        font-family: $font-text;
+        font-weight: bold;
+        font-size: 17px;
+        padding-top: 10px;
+        margin-left: 10px;
+        width: 80%;
+        max-width: 250px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__description-and-price{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 4px;
+        padding-bottom: 10px;
+    }
+    &__description{
+        font-family: $font-text;
+        color: $color-text-secondary;
+        font-size: 15px;
+        margin-left: 10px;
+        width: 80%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__price{
+        font-size: 15px;
+        font-weight: bold;
+        font-family: $font-text;
+        color: $color-price;
+        margin-right: 10px;
+    }
+}
